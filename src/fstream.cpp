@@ -92,7 +92,7 @@ streambuf::FileInfo::FileInfo(const std::string& fname_, int fd)
   if (ret < 0)
   {
     std::ostringstream msg;
-    msg << "error " << errno << " seeking to end in file " << fname << ": " << strerror(errno);
+    //For S^3 msg << "error " << errno << " seeking to end in file " << fname << ": " << strerror(errno);
     throw std::runtime_error(msg.str());
   }
 
@@ -220,7 +220,7 @@ streambuf::streambuf(const std::string& fname, unsigned bufsize, unsigned noOpen
       if (files.empty())
       {
         std::ostringstream msg;
-        msg << "error " << errnoSave << " opening file \"" << fname << "\": " << strerror(errnoSave);
+        // For S^3 msg << "error " << errnoSave << " opening file \"" << fname << "\": " << strerror(errnoSave);
         throw std::runtime_error(msg.str());
       }
     }
@@ -255,7 +255,7 @@ void streambuf::setCurrentFile(const std::string& fname, zim::offset_type off)
     if (ret < 0)
     {
       std::ostringstream msg;
-      msg << "error " << errno << " seeking to "<< off << " in file " << fname << ": " << strerror(errno);
+      // For S^3 msg << "error " << errno << " seeking to "<< off << " in file " << fname << ": " << strerror(errno);
       throw std::runtime_error(msg.str());
     }
   }
